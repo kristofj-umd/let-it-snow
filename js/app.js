@@ -87,10 +87,17 @@ function _addData2Map(map, weatherData)
 // return map object
 function _setupMap()
 {
-    var map = L.map('map').setView([46.782963, -92.094666], 7),
-    Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
-    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+    var token ="pk.eyJ1Ijoia3Jpc3RvZmoiLCJhIjoiY2lyd2o4emVuMDBpY2hrbmhoNDRtbmhyNSJ9.EJIBivPIIdDraJ8xvp7UoQ"; // replace with your Mapbox API Access token. Create a Mapbox account and find it on https://account.mapbox.com/
+
+    var map = L.map('map').setView([46.782963, -92.094666], 7);
+    var gl = L.mapboxGL({
+        accessToken: token,
+        style: 'mapbox://styles/kristofj/ckhi7csrl2y5519pjwcfoudah'
     }).addTo(map);
+//    var map = L.map('map').setView([46.782963, -92.094666], 7),
+//    Esri_WorldImagery = L.tileLayer('http://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+//    attribution: 'Tiles &copy; Esri &mdash; Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community'
+//    }).addTo(map);
     // NASAGIBS_ModisTerraTrueColorCR = L.tileLayer('http://map1.vis.earthdata.nasa.gov/wmts-webmerc/MODIS_Terra_CorrectedReflectance_TrueColor/default/{time}/{tilematrixset}{maxZoom}/{z}/{y}/{x}.{format}', {
     //     attribution: 'Imagery provided by services from the Global Imagery Browse Services (GIBS), operated by the NASA/GSFC/Earth Science Data and Information System (<a href="https://earthdata.nasa.gov">ESDIS</a>) with funding provided by NASA/HQ.',
     //     bounds: [[-85.0511287776, -179.999999975], [85.0511287776, 179.999999975]],
