@@ -59,7 +59,9 @@ function _addData2Map(map, weatherData)
         // var snowflakeSVG = d3.select(document.getElementById('snowflakesvg').contentDocument).select('#document')[0].parentNode,
         var myDivIcon = L.divIcon({
                 className: 'my-div-icon-class',
-                html: xml.documentElement
+                html: xml.documentElement.outerHTML,
+                iconSize: [24,24],
+                iconAnchor: [12, 24]
             }),
 
             markerLayer = L.geoJSON(weatherData, {
@@ -109,31 +111,13 @@ function _setupMap()
 // GET request to weather service
 function _getData(callback)
 {
-    var request = new XMLHttpRequest();
-    request.open('GET', 'http://cors-anywhere.herokuapp.com/https://nwschat.weather.gov/geojson/lsr.php?inc_ap=yes&sts=201612050600&ets=201612052230&wfos=DLH', true);
+    var url = 'https://cors-anywhere.herokuapp.com/https://www.weather.gov/source/crh/lsr_snow.geojson';
+    d3.json(url, function (json) {
+        //code here
+        console.log('json', json)
+        callback(json);
+    });
 
-    request.onload = function()
-    {
-        if (request.status >= 200 && request.status < 400)
-        {
-            // Success!
-            callback(JSON.parse(request.responseText));
-            // console.log(request.responseText);
-        }
-        else
-        {
-            // We reached our target server, but it returned an error
-            console.log('server error', request);
-        }
-    };
-
-    request.onerror = function()
-    {
-        // There was a connection error of some sort
-        console.log('error', request);
-    };
-
-    request.send();
 }
 
 // parse raw data into useable records
