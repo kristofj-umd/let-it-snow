@@ -14,11 +14,19 @@
 /* Set the width of the sidebar to 250px (show it) */
 function openNav() {
     document.getElementById("mySidepanel").style.width = "250px";
+    // hide open button
+    document.getElementById("openbtn").style.display = "none";
+    // show close button
+    document.getElementById("closebtn").style.display = "block";
 }
 
-/* Set the width of the sidebar to 0 (hide it) */
 function closeNav() {
+    /* Set the width of the sidebar to 0 (hide it) */
     document.getElementById("mySidepanel").style.width = "0";
+    // hide close button
+    document.getElementById("closebtn").style.display = "none";
+    // show open button
+    document.getElementById("openbtn").style.display = "block";
 }
 
 window.onload = function () {
