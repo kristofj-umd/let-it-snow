@@ -36,18 +36,29 @@
         src: https://www.w3schools.com/howto/howto_js_collapse_sidepanel.asp
     -->
     <div id="mySidepanel" class="sidepanel">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
+        <div class="sidepanel-div">
+            <h1>Title goes here</h1>
+        </div>
+        <div class="sidepanel-div">
+            <h1>Legend goes here</h1>
+        </div>
+        <div class="sidepanel-div">
+            <h1>Time slider goes here</h1>
+        </div>
+        <div class="sidepanel-div">
+            <h1>Heatmap toggles go here</h1>
+        </div>
+        <div class="sidepanel-div">
+            <h1>Attribution and info go here</h1>
+        </div>
     </div>
-    
-    <button class="openbtn" onclick="openNav()">&#9776; Toggle Sidepanel</button>
+
+    <button id="openbtn" class="panelbtn" onclick="openNav()"><i class="left-arrow"></i></button>
+    <button id="closebtn" class="panelbtn" onclick="closeNav()"><i class="right-arrow"></i></button>
 
     <!-- map container   -->
     <div id="map"></div>
-    
+
     <!-- additonal resources   -->
     <!-- d3 js -->
     <script src="https://d3js.org/d3.v4.js"></script>
