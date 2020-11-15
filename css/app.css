@@ -22,7 +22,7 @@ body,
     /* Specify a height */
     width: 250px;
     /* 0 width - change this with JavaScript */
-    position: fixed;
+    position: absolute;
     /* Stay in place */
     z-index: 99999;
     /* Stay on top */
@@ -30,7 +30,7 @@ body,
     right: 0;
     margin: 20px 10px;
 /*    padding: 15px;*/
-    background-color: rgba(49, 62, 69, 0.19);
+    background-color: rgba(77, 63, 19, 0.5);
     /* Black*/
     overflow-x: hidden;
     /* Disable horizontal scroll */
