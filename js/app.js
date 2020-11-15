@@ -9,34 +9,54 @@
 // js-hint modifiers
 /*globals d3, L */
 
-window.onload = function()
-{
+// side panel functionality
+// src: https://www.w3schools.com/howto/howto_js_collapse_sidepanel.asp
+/* Set the width of the sidebar to 250px (show it) */
+function openNav() {
+    document.getElementById("mySidepanel").style.width = "250px";
+    // hide open button
+    document.getElementById("openbtn").style.display = "none";
+    // show close button
+    document.getElementById("closebtn").style.display = "block";
+}
+
+function closeNav() {
+    /* Set the width of the sidebar to 0 (hide it) */
+    document.getElementById("mySidepanel").style.width = "0";
+    // hide close button
+    document.getElementById("closebtn").style.display = "none";
+    // show open button
+    document.getElementById("openbtn").style.display = "block";
+}
+
+window.onload = function () {
+    
     main();
+    
 };
 
-function main()
-{
+function main() {
     var data,
         map =
         // setup leaflet map
         _setupMap();
 
     // query weather service for latest weather data
-//    _getData(function(result)
-//    {
-//        // parse data and return records array
-//        data = result;
-//        // once data is available start dropping points
-////        _addData2Map(map, data);
-//    });
+    //    _getData(function(result)
+    //    {
+    //        // parse data and return records array
+    //        data = result;
+    //        // once data is available start dropping points
+    ////        _addData2Map(map, data);
+    //    });
+
 }
 
 // add weather data to map
 // brefs:
 // https://gist.github.com/d3noob/9267535
 // http://bost.ocks.org/mike/leaflet/
-function _addData2Map(map, weatherData)
-{
+function _addData2Map(map, weatherData) {
     console.log(weatherData, map);
     // var geojsonMarkerOptions = {
     //     radius: 8,
@@ -47,7 +67,7 @@ function _addData2Map(map, weatherData)
     //     fillOpacity: 0.8
     // };
 
-    d3.xml("falling-snowflakes-free-stock-vector-7.svg").mimeType("image/svg+xml").get(function(error, xml) {
+    d3.xml("falling-snowflakes-free-stock-vector-7.svg").mimeType("image/svg+xml").get(function (error, xml) {
         if (error) throw error;
 
         // var myIcon = L.icon({
@@ -60,22 +80,23 @@ function _addData2Map(map, weatherData)
         var myDivIcon = L.divIcon({
                 className: 'my-div-icon-class',
                 html: xml.documentElement.outerHTML,
-                iconSize: [24,24],
+                iconSize: [24, 24],
                 iconAnchor: [12, 24]
             }),
 
             markerLayer = L.geoJSON(weatherData, {
                 pointToLayer: function (feature, latlng) {
-                    return L.marker(latlng, {icon: myDivIcon});
-                }
-                ,
+                    return L.marker(latlng, {
+                        icon: myDivIcon
+                    });
+                },
                 // onEachFeature: function(feature, layer) {
                 //     console.log('feature', feature);
                 //     console.log('layer', layer);
                 // }
             });
 
-        markerLayer.on('add', function(evt) {
+        markerLayer.on('add', function (evt) {
             console.log('onadd', evt);
         });
 
@@ -85,9 +106,8 @@ function _addData2Map(map, weatherData)
 
 // setup leaflet map
 // return map object
-function _setupMap()
-{
-    var token ="pk.eyJ1Ijoia3Jpc3RvZmoiLCJhIjoiY2lyd2o4emVuMDBpY2hrbmhoNDRtbmhyNSJ9.EJIBivPIIdDraJ8xvp7UoQ"; // replace with your Mapbox API Access token. Create a Mapbox account and find it on https://account.mapbox.com/
+function _setupMap() {
+    var token = "pk.eyJ1Ijoia3Jpc3RvZmoiLCJhIjoiY2lyd2o4emVuMDBpY2hrbmhoNDRtbmhyNSJ9.EJIBivPIIdDraJ8xvp7UoQ"; // replace with your Mapbox API Access token. Create a Mapbox account and find it on https://account.mapbox.com/
 
     var map = L.map('map').setView([46.782963, -92.094666], 7);
     var gl = L.mapboxGL({
@@ -99,8 +119,7 @@ function _setupMap()
 }
 
 // GET request to weather service
-function _getData(callback)
-{
+function _getData(callback) {
     var url = 'https://cors-anywhere.herokuapp.com/https://www.weather.gov/source/crh/lsr_snow.geojson';
     d3.json(url, function (json) {
         //code here

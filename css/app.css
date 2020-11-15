@@ -5,7 +5,89 @@ body {
     margin: 0;
 }
 
-html, body, #map {
+html,
+body,
+#map {
     height: 100%;
     width: 100%;
+}
+
+/*
+    side panel styles
+    src: https://www.w3schools.com/howto/howto_js_collapse_sidepanel.asp
+*/
+/* The sidepanel menu */
+.sidepanel {
+/*    height: 250px;*/
+    /* Specify a height */
+    width: 250px;
+    /* 0 width - change this with JavaScript */
+    position: absolute;
+    /* Stay in place */
+    z-index: 99999;
+    /* Stay on top */
+    top: 0;
+    right: 0;
+    margin: 20px 10px;
+/*    padding: 15px;*/
+    background-color: rgba(77, 63, 19, 0.5);
+    /* Black*/
+    overflow-x: hidden;
+    /* Disable horizontal scroll */
+    /*    padding-top: 60px;*/
+    /* Place content 60px from the top */
+    transition: 0.5s;
+    /* 0.5 second transition effect to slide in the sidepanel */
+    border-radius: 10px;
+}
+
+/* side panel child divs */
+.sidepanel-div {
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px
+}
+
+/* Style the button that is used to open the sidepanel */
+.panelbtn {
+    right: 0;
+    top: 50%;
+    position: absolute;
+    z-index: 9999999999;
+    cursor: pointer;
+    background: none;
+    color: white;
+    padding: 10px;
+    border: 1px solid silver;
+    border-radius: 5px;
+}
+
+.panelbtn:hover {
+    background-color: #444;
+}
+
+/* start with close button hidden */
+#openbtn {
+    display: none;
+}
+
+/* open/close arrows */
+/* src: https://www.w3schools.com/howto/howto_css_arrows.asp */
+.left-arrow {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(135deg);
+    -webkit-transform: rotate(135deg);
+}
+
+.right-arrow {
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 5px;
+    transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
 }
