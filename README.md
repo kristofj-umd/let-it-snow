@@ -15,3 +15,26 @@ https://wireframe.cc/uDjqqW
 ---
 
 ## Second Draft
+
+#### Functioning web app
+https://kristofj-umd.github.io/let-it-snow/
+
+#### Work plan
+1. Snowfall data  
+  a. Load snowfall data into app  
+  b. Add, symbolize, and render snowfall data  
+2. Finish side panel  
+  a. Add content  
+  b. style side panel  
+2. Functionality  
+  a. add popups  
+  b. add filtering  
+3. Additional layers  
+  a. add heatmap layer  
+  b. anything else?  
+4. Clean up if I have time  
+
+#### List of three issues
+1. I'm not sure if I like my mapbox basemap. Should I make it lighter? Darker? Switch to something else entirely?
+2. Should I include snowfall data as a popup, a tooltip, on the side panel?
+3. Are there additional layers or functionality I should include?
