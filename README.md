@@ -29,9 +29,9 @@ https://kristofj-umd.github.io/let-it-snow/
 2. Functionality  
   a. add popups  
   b. add filtering  
-3. Additional layers  
+3. If I have time :clock  
   a. add heatmap layer  
-  b. anything else?  
+  b. zoom-based symbology  
 4. Clean up if I have time  
 
 #### List of three issues
