@@ -10,3 +10,8 @@ This web map is intended to be utilized by anyone in the general public who is i
 #### Initial Design
 https://wireframe.cc/uDjqqW
 
+![first draft visual](Screen%20Shot%202020-10-23%20at%207.35.25%20AM.png)
+
+---
+
+## Second Draft
