@@ -39,6 +39,7 @@ body,
     transition: 0.5s;
     /* 0.5 second transition effect to slide in the sidepanel */
     border-radius: 10px;
+    color: #fff;
 }
 
 /* side panel child divs */
